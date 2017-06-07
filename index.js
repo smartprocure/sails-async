@@ -31,7 +31,7 @@ let success = send(200)
 // Asyncification
 let respond = (f, next) => async (req, res) => {
   try {
-    next(await f(req, res))
+    next(await f(req, res, req.allParams && req.allParams()))
   }
   catch (e) {
     fail(res)(e)
