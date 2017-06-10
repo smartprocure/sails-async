@@ -23,7 +23,7 @@ let send = defaultStatus => res => data => {
 
   res
     .status(data.statusCode || defaultStatus)
-    .send(data.body || _.omit('statusCode', data))
+    .send(data.body || (data.statusCode && _.omit('statusCode', data)) || data)
 }
 let fail = send(500)
 let success = send(200)
