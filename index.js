@@ -47,8 +47,8 @@ let controller = _.mapValues(method)
 // Policy that runs _after_ controller methods (with an optional normal `before` function)
 let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
   let resFn = res.send
-  res.send = (...args) => {
-    fn(req, res, ...args)
+  res.send = async (...args) => {
+    await fn(req, res, ...args)
     return resFn(...args)
   }
   await before(req, res)
