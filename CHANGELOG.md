@@ -1,3 +1,6 @@
+# 1.1.2
+Supporting Async / Await in postPolicy
+
 # 1.1.1
 Unbreaking raw string, date, and array responses.
 
