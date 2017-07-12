@@ -55,11 +55,14 @@ let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
   next()
 }
 
-// Gets controller/method info for a route
-let getRouteData = ({ options: {action} }) => ({
-  type: _.dropRight(1, action.split('/')).join('-'),
-  action: _.last(action.split('/'))
+// Gets controller/method info from a string src
+let parseOptionsString = (src) => ({
+  type: _.dropRight(1, src.split('/')).join('-'),
+  action: _.last(src.split('/'))
 })
+
+// Gets controller/method info for a route
+let getRouteData = ({ options: {action}}, actionNameSrc) => parseOptionsString(action)
 
 module.exports = {
   send,
@@ -72,5 +75,6 @@ module.exports = {
   controller,
 
   postPolicy,
-  getRouteData
+  getRouteData,
+  parseOptionsString
 }
