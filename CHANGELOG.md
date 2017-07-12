@@ -1,3 +1,6 @@
+# 1.2.1
+Remove unused param `actionNameSrc` from getRouteData
+
 # 1.2.0
 Add `parseOptionsString` to extract `type` and `action` from a `src` string
 Make `getRouteData` use `parseOptionsString`
