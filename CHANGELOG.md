@@ -1,3 +1,7 @@
+# 1.3.0
+Add `originalName` prop to sails action in `method` when wrapping original action to have access then in `req`
+Remove `parseOptionsString`
+
 # 1.2.1
 Remove unused param `actionNameSrc` from getRouteData
 
