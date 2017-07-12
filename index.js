@@ -62,7 +62,7 @@ let parseOptionsString = (src) => ({
 })
 
 // Gets controller/method info for a route
-let getRouteData = ({ options: {action}}, actionNameSrc) => parseOptionsString(action)
+let getRouteData = ({ options: {action}}) => parseOptionsString(action)
 
 module.exports = {
   send,
