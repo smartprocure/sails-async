@@ -1,3 +1,6 @@
+# 1.3.1
+Clean up and lint
+
 # 1.3.0
 Set `name` prop to sails action in `method` when wrapping original action to have access then in `req`
 Remove `parseOptionsString`
