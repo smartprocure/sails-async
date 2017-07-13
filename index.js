@@ -37,8 +37,11 @@ let respond = (f, next) => async (req, res) => {
     fail(res)(e)
   }
 }
-let method = f => async (req, res) =>
-  respond(f, success(res))(req, res)
+// to set the name of the function
+let method = f => ({
+  [f.name]: async (req, res) => respond(f, success(res))(req, res)
+})[f.name]
+
 let policy = f => async (req, res, next) =>
   respond(f, next)(req, res)
 
@@ -55,10 +58,10 @@ let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
   next()
 }
 
-// Gets controller/method info from a string src
-let parseOptionsString = (src) => ({
-  type: _.dropRight(1, src.split('/')).join('-'),
-  action: _.last(src.split('/'))
+// Gets controller/method info for a route
+let getRouteData = ({options: {action}, _sails: {_actions}}) => ({
+  type: _.dropRight(1, action.split('/')).join('-'),
+  action: _.get(`${action}.name`, actions) || _.last(action.split('/'))
 })
 
 // Gets controller/method info for a route
