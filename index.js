@@ -32,8 +32,8 @@ let success = send(200)
 let respond = (f, next) => async (req, res) => {
   try {
     next(await f(req, res, req.allParams && req.allParams()))
-  }
-  catch (e) {
+  } catch (e) {
+    console.error(e)
     fail(res)(e)
   }
 }
@@ -48,14 +48,13 @@ let policy = f => async (req, res, next) =>
 let controller = _.mapValues(method)
 
 // Policy that runs _after_ controller methods (with an optional normal `before` function)
-let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
+let postPolicy = (fn, before=_.noop) => (req, res, next) => {
   let resFn = res.send
   res.send = async (...args) => {
     await fn(req, res, ...args)
     return resFn(...args)
   }
-  await before(req, res)
-  next()
+  respond(before, next)(req, res)
 }
 
 // Gets controller/method info for a route

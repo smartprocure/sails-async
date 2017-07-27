@@ -1,3 +1,6 @@
+﻿# 1.3.2
+Catching errors
+
 # 1.3.1
 Clean up and lint
 
