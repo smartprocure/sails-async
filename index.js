@@ -48,18 +48,13 @@ let policy = f => async (req, res, next) =>
 let controller = _.mapValues(method)
 
 // Policy that runs _after_ controller methods (with an optional normal `before` function)
-let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
+let postPolicy = (fn, before=_.noop) => (req, res, next) => {
   let resFn = res.send
   res.send = async (...args) => {
-    try {
-      await fn(req, res, ...args)
-    } catch(e) {
-      console.error('async postPolicy error', e)
-    }
+    await fn(req, res, ...args)
     return resFn(...args)
   }
-  await before(req, res)
-  next()
+  respond(before, next)(req, res)
 }
 
 // Gets controller/method info for a route
