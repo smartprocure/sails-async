@@ -32,8 +32,8 @@ let success = send(200)
 let respond = (f, next) => async (req, res) => {
   try {
     next(await f(req, res, req.allParams && req.allParams()))
-  }
-  catch (e) {
+  } catch (e) {
+    console.error(e)
     fail(res)(e)
   }
 }
@@ -51,7 +51,11 @@ let controller = _.mapValues(method)
 let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
   let resFn = res.send
   res.send = async (...args) => {
-    await fn(req, res, ...args)
+    try {
+      await fn(req, res, ...args)
+    } catch(e) {
+      console.error('async postPolicy error', e)
+    }
     return resFn(...args)
   }
   await before(req, res)
