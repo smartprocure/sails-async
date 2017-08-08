@@ -4,14 +4,17 @@
   "description": "Utilities to enable async/promise methods for controllers and policies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "danger": "duti"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "duti": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smartprocure/sails-async.git"
