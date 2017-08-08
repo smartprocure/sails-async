@@ -1,3 +1,6 @@
+# 1.3.2
+Add duti to the repo
+
 # 1.3.1
 Clean up and lint
 

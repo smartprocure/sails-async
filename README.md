@@ -1,5 +1,7 @@
 # sails-async
 
+[![CircleCI](https://circleci.com/gh/smartprocure/sails-async.svg?style=svg)](https://circleci.com/gh/smartprocure/sails-async)
+
 These are utilities to enable async/promise methods for controllers and policies
 
 ## Guide
