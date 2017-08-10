@@ -52,7 +52,7 @@ let postPolicy = (fn, before=_.noop) => async (req, res, next) => {
   let resFn = res.send
   res.send = async (...args) => {
     await fn(req, res, ...args)
-    return resFn(...args)
+    return resFn.call(res, ...args)
   }
   await before(req, res)
   next()

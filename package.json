@@ -1,6 +1,6 @@
 {
   "name": "sails-async",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Utilities to enable async/promise methods for controllers and policies",
   "main": "index.js",
   "scripts": {
