@@ -1,3 +1,6 @@
+# 1.3.3
+Fix issue with res.send in postPolicy
+
 # 1.3.2
 Add duti to the repo
 
