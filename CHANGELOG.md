@@ -1,3 +1,6 @@
+# 1.3.4
+Add `bool` to support multiple policies condition (A policy and/or B policy)
+
 # 1.3.3
 Fix issue with res.send in postPolicy
 

@@ -68,11 +68,11 @@ module.exports = {
   send,
   fail,
   success,
-
   respond,
   method,
   policy,
   controller,
   postPolicy,
-  getRouteData
+  getRouteData,
+  bool: require('./bool')
 }
