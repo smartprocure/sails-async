@@ -1,3 +1,6 @@
+# 1.3.5
+Use latest duti version
+
 # 1.3.4
 Add `bool` to support multiple policies condition (A policy and/or B policy)
 
