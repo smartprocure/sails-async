@@ -13,7 +13,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "duti": "^0.3.2"
+    "duti": "latest"
   },
   "repository": {
     "type": "git",
