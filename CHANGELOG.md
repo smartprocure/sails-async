@@ -1,3 +1,6 @@
+# 1.3.6
+Always run duti in Circle
+
 # 1.3.5
 Use latest duti version
 
