@@ -1,3 +1,7 @@
+﻿# 1.4.0
+`modelPolicy`, `modelPostPolicy`, `populatePolicy` and
+`populatePostPolicy`.
+
 # 1.3.6
 Always run duti in Circle
 
