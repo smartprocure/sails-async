@@ -71,7 +71,7 @@ module.exports = _.extend(function (combinator, policies) {
         return result
       })
     }).then(function (results) {
-      if (passed) { next() } else { res.send(401, _.map(results, 'body')) }
+      if (passed) { next() } else { res.status(401).send(_.map(results, 'body')) }
     })
   }
 }, {
