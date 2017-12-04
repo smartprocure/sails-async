@@ -1,3 +1,6 @@
+﻿# 1.3.7
+Fixed res.send issue
+
 # 1.3.6
 Always run duti in Circle
 
